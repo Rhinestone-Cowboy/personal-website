@@ -1,0 +1,17 @@
+.project-icons{
+    width: 500px;  /* Set the width of the container */
+    height: 400px; /* Set the height of the container, same as width for square shape */
+    overflow:visible;
+    border-radius: 50%; /* Make the container a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap:20px;
+    position: relative;
+}
+
+.project-desc{
+
+}
+

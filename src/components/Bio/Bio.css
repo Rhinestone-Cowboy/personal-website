@@ -1,0 +1,15 @@
+.textbox {
+    width: 500px;  /* Set the width of the box */
+    height: 300px; /* Set the height of the box, same as the width */
+    background-color:#FFEEB0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    border-radius: 10%;
+    margin: 50px;
+    
+
+}

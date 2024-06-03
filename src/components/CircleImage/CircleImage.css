@@ -1,0 +1,14 @@
+/* src/CircleImage.css */
+.circle-container {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ccc; /* Optional: Add a border around the circle */
+}
+  
+.circle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without distorting */
+}
+  
