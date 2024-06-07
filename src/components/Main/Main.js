@@ -5,7 +5,7 @@ const Main = () => {
   return (
     <>
     <div className='center-piece'>
-        <CircleImage src="icons/email.svg" alt="diego-padilla-picture" size='18vw' />
+        <CircleImage src="icons/email.svg" alt="diego-padilla-picture" size='16vw' />
         <h1 className='name' style={{ letterSpacing: -1 }}>Diego Padilla</h1>
 
     </div>

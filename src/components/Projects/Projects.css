@@ -9,9 +9,30 @@
     align-content: center;
     gap:20px;
     position: relative;
+    z-index: 0;
 }
 
 .project-desc{
+    position:absolute;
+    left: 80px;
+    top: -60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    border-radius: 10%;
+    margin: 50px;
+    background-color:#c79c00;
+    width: 250px;  /* Set the width of the box */
+    height: 200px; /* Set the height of the box, same as the width */
+    z-index: 1;
+}
 
+.project-container{
+    position: relative;
+    width: 500px;
+    height: 400px;
 }
 

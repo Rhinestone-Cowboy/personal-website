@@ -13,9 +13,8 @@
   }
   .navbar {
     border-bottom: 1px solid black; /* Add a border around the element */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); Optional: Add a shadow for better effect
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    height: 40px;
   
 }
 
-  .item{
-  }

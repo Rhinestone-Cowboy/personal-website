@@ -2,6 +2,8 @@
   text-align: center;
   background-color: #FFFBF1;
   min-height: 100vh;
+  display: flexbox;
+  
 
 
 
@@ -43,12 +45,14 @@
 }
 
 .flex-container {
+  margin-top: 50px;
   display: flex;
   align-content: center;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  transform: translate(0,-10vh);
+  transform: translate(0,-20vh);
+  
 
 }
 
