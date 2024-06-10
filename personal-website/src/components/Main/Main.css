@@ -1,0 +1,32 @@
+
+
+.center-piece{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    transform: translate(0vw,-8vh);
+    min-height:300px;
+    pointer-events: none;
+}
+
+
+.name{
+    position: relative;
+    font-size: clamp(32px, 8vw, 64px); 
+    padding: 1vw;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 18px;
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+    /* font-family: 'Merriweather', serif; */
+    /* text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8), 
+               -2px -2px 5px rgba(255, 255, 255, 0.5); */
+
+
+}
+
+
