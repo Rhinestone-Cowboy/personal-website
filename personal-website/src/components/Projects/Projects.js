@@ -1,7 +1,6 @@
-import React, { act, useState } from "react"
+import React, { useState } from "react"
 import './Projects.css'
-import CircleImage from '../CircleImage/CircleImage';
-import { useSpring, animated, config, easings } from "react-spring";
+import { useSpring, animated } from "react-spring";
 
 
 const Projects = () => {
@@ -13,6 +12,51 @@ const Projects = () => {
     };
     const [positions, setPositions] = useState(initialPositions);
     const [activeComponent, setActiveComponent] = useState(null);
+
+
+
+
+
+
+    const descConfig = { tension: 500, friction: 35  };
+
+    const springDesc1 = useSpring({
+        from: {opacity: 0},
+        to: positions.component1.isReverse ? [
+                {transform: 'scale(0.0)'},
+            ]:[
+                {delay: activeComponent === 'compo1' ? 650 : 0},
+                {opacity: activeComponent === 'compo1' ? 1 : 0},
+                {transform: activeComponent === 'compo1' ? 'scale(1.0)' : 'scale(0.0)'},
+            ],
+        config: { tension: 500, friction: 35  }
+    });
+
+    const springDesc2 = useSpring({
+        from: {opacity: 0},
+        to: positions.component2.isReverse ? [
+            {transform: 'scale(0.0)'},
+        ]:[
+            {delay: activeComponent === 'compo2' ? 850 : 0},
+            {opacity: activeComponent === 'compo2' ? 1 : 0},
+            {transform: activeComponent === 'compo2' ? 'scale(1.0)' : 'scale(0.0)'},
+        ],
+        config: descConfig
+
+    });
+
+    const springDesc3 = useSpring({
+        from: {opacity: 0},
+        to: positions.component3.isReverse ? [
+            {transform: 'scale(0.0)'},
+        ]:[
+            {delay: activeComponent === 'compo3' ? 650 : 0},
+            {opacity: activeComponent === 'compo3' ? 1 : 0},
+            {transform: activeComponent === 'compo3' ? 'scale(1.0)' : 'scale(0.0)'},
+        ],
+        config: descConfig
+
+    });
 
     const moveComponentOneUp = () => {
 
@@ -97,23 +141,16 @@ const Projects = () => {
                     { opacity: 1},
                     { x: positions.component1.x },
                     { y:  positions.component1.y},
-                    
-                ]
-                :
-                [
+
+                ]:[
                     { y:  positions.component1.y},
                     { x: positions.component1.x },
                     { opacity: activeComponent === 'compo1' ? 0 : 1}
                 ],
                 config: iconSetup
-
-        
-                
-                
             };
             if (positions.component1.isReverse) { positions.component1.isReverse = false };
             return springProps;
-
         } else if (compID === 'compo2') {
             const springProps = {
                 from: { x: initialPositions.component1.x, y: initialPositions.component1.y },
@@ -122,17 +159,13 @@ const Projects = () => {
                     { opacity: 1},
                     { x: positions.component2.x },
                     { y:  positions.component2.y},
-                ]
-                :
-                [
+                ]:[
                     {delay: activeComponent === 'compo2' ? 500 : 0},
                     { y:  positions.component2.y},
                     { x: positions.component2.x },
                     { opacity: activeComponent === 'compo2' ? 0 : 1}
                 ],
-                config: iconSetup
-
-                
+                config: iconSetup 
             };
             if (positions.component2.isReverse) { positions.component2.isReverse = false };
             return springProps;
@@ -145,9 +178,7 @@ const Projects = () => {
                     { opacity: 1},
                     { x: positions.component3.x },
                     { y:  positions.component3.y},
-                ]
-                :
-                [
+                ]:[
                     { y:  positions.component3.y},
                     { x: positions.component3.x },
                     { opacity: activeComponent === 'compo3' ? 0 : 1}
@@ -160,74 +191,19 @@ const Projects = () => {
             return springProps;
         }
        };
-
-
-      
-  
+       
     const springProps1 = useSpring(getSpringProps('compo1'));
-
     const springProps2 = useSpring(getSpringProps('compo2'));
-
     const springProps3 = useSpring(getSpringProps('compo3'));
 
-    const popupTime = 80;
 
-       
-
-    const springDesc1 = useSpring({
-        from: {opacity: 0},
-        to: [
-            {delay: activeComponent === 'compo1' ? 650 : 0},
-            {opacity: activeComponent === 'compo1' ? 1 : 0},
-            // {transform: activeComponent === 'compo1' ? 'scale(1.0)' : 'scale(1.0)'},
-        ],
-        config: { duration: popupTime }
-
+    const fadingTextProp = useSpring ({
+      from: {opacity: 1}, 
+      to: (activeComponent === null) ? {opacity: 1} : {transform: 'scale(0.0)'},
+      
     });
-
-    const springDesc2 = useSpring({
-        from: {opacity: 0},
-        to: [
-            {delay: activeComponent === 'compo2' ? 800 : 0},
-            {opacity: activeComponent === 'compo2' ? 1 : 0},
-            // {transform: activeComponent === 'compo2' ? 'scale(1.0)' : 'scale(1.0)'},
-        ],
-        config: { duration: popupTime }
-
-    });
-
-    const springDesc3 = useSpring({
-        from: {opacity: 0},
-        to: [
-            {delay: activeComponent === 'compo3' ? 650 : 0},
-            {opacity: activeComponent === 'compo3' ? 1 : 0},
-            // {transform: activeComponent === 'compo1' ? 'scale(1.0)' : 'scale(1.0)'},
-        ],
-        config: { duration: popupTime }
-
-    });
-
-    const descriptions = [
-        'compo1',
-        'compo2',
-        'compo3'
-    ];
-
-    const getDescriptions = (compoID) => {
-        if (compoID === 'compo1') {
-            return descriptions[0];
-        } else if (compoID === 'compo2') {
-            return descriptions[1];
-        } else if (compoID === 'compo3') {
-            return descriptions[2];
-        }
-    };
-
-    const activeDesc = getDescriptions(activeComponent);
-
-
-
-
+    console.log(activeComponent);
+    console.log(activeComponent===null);
 
 
 
@@ -250,20 +226,29 @@ const Projects = () => {
 
                 <animated.div onClick={moveComponentOneUp} style={{...springProps1,
                                                     position: 'absolute'}}>
-                    <CircleImage src="icons/email.svg" alt="diego-padilla-picture" size='128px' />
+                    <button className="icon-btn">
+                      <img src="icons/misc.svg" alt="miscellaneous projects" width="128" height="128" />
+                    </button>
                 </animated.div>
                 <animated.div onClick={moveComponentTwoUp} style={{...springProps2,
                                                     position: 'absolute'}}>
-                    <CircleImage src="icons/email.svg" alt="diego-padilla-picture" size='128px' />
-                </animated.div>
+                    <button className="icon-btn">
+                      <img src="icons/code.svg" alt="software projects" width="128" height="128" />
+                    </button>     
+                  </animated.div>
                 <animated.div onClick={moveComponentThreeUp} style={{...springProps3,
                                                     position: 'absolute'}}>
-                    <CircleImage src="icons/email.svg" alt="diego-padilla-picture" size='128px' />
+                    <button className="icon-btn">
+                    <img src="icons/robot.svg" alt="robotics projects" width="128" height="128" />
+                    </button>
                 </animated.div>
-
-
             </div>
-        </div>);
+
+            <animated.div style={{...fadingTextProp}} className='project-instr'>
+                  click to expand
+            </animated.div>
+        </div>
+    );
 }
 
 export default Projects;

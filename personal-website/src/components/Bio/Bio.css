@@ -1,16 +1,40 @@
 .textbox {
     width: 500px;  /* Set the width of the box */
     height: 400px; /* Set the height of the box, same as the width */
-    background-color:#FFEEB0;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 10px;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    border-radius: 10%;
     margin: 50px;
-    border:1px solid black;
+    position: relative;
 
 
+}
+
+/*custom corners by chat-gpt*/
+.textbox::before,
+.textbox::after {
+  content: '';
+  position: absolute;
+  width: 40px; /* Adjust the width of the corner border */
+  height: 40px; /* Adjust the height of the corner border */
+  border: 2px solid #000; /* Set the border color and thickness */
+  
+}
+
+.textbox::before {
+  top: 0;
+  left: 0;
+  border-top-left-radius: 10px; /* Adjust the border radius for top left corner */
+  border-right: none; /* To prevent border overlapping */
+  border-bottom: none; /* To prevent border overlapping */
+}
+
+.textbox::after {
+  bottom: 0;
+  right: 0;
+  border-bottom-right-radius: 10px; /* Adjust the border radius for bottom right corner */
+  border-left: none; /* To prevent border overlapping */
+  border-top: none; /* To prevent border overlapping */
 }

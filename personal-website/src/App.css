@@ -1,8 +1,9 @@
 .App {
   text-align: center;
-  background-color: #F4F0E0;
+  background-color: #E8DACC;
+
   min-height: 100vh;
-  
+
 
 
 
@@ -51,7 +52,7 @@
   justify-content: center;
   flex-wrap: wrap;
   transform: translate(0,-20vh);
-  
+  overflow: hidden;
 
 }
 

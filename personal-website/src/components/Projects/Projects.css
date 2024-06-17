@@ -14,8 +14,8 @@
 
 .project-desc{
     position:absolute;
-    left: -50px;
-    top: -150px;
+    left: -60px;
+    top: -140px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,21 +23,60 @@
     padding: 10px;
     box-sizing: border-box; 
     border-radius: 10%;
-    margin: 50px;
-    background-color:#FFEEB0;
+    margin: 60px;
     width: 500px;  
     height: 300px; 
-    z-index: 1;
-    border:1px solid black;
+    z-index: 1;    
     pointer-events: none;
 
 }
 
+/*custom corners by chat-gpt*/
+.project-desc::before,
+.project-desc::after {
+  content: '';
+  position: absolute;
+  width: 60px; /* Adjust the width of the corner border */
+  height: 60px; /* Adjust the height of the corner border */
+  border: 2px solid #000; /* Set the border color and thickness */
+  
+}
+
+.project-desc::before {
+  top: 0;
+  left: 0;
+  border-top-left-radius: 10px; /* Adjust the border radius for top left corner */
+  border-right: none; /* To prevent border overlapping */
+  border-bottom: none; /* To prevent border overlapping */
+}
+
+.project-desc::after {
+  bottom: 0;
+  right: 0;
+  border-bottom-right-radius: 10px; /* Adjust the border radius for bottom right corner */
+  border-left: none; /* To prevent border overlapping */
+  border-top: none; /* To prevent border overlapping */
+}
+
+.project-instr {
+  position: relative;
+  top:-170px;
+  color: #514538;
+  opacity: 0.5;
+
+}
+
+
 .project-container{
     position: relative;
     width: 500px;
-    height: 400px;
+    height: 500px;
     bottom: 0;
     margin-top:80px;
+}
+
+.icon-btn{
+  background: transparent;
+  border: none;
 }
 
